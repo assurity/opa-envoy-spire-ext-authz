@@ -45,12 +45,11 @@ services:
     ports:
       - "8001:8001"
   opa_web:
-    image: openpolicyagent/opa:0.10.7-envoy
+    image: openpolicyagent/opa:0.17.1-istio
     volumes:
     - ./docker/web/opa/policies:/policies
     - ./docker/web/opa/config:/config
     command:
-    - --plugin-dir=.
     - run
     - --server
     - --log-level=debug
@@ -65,12 +64,11 @@ services:
     ports:
       - "9191:9191"
   opa_be:
-    image: openpolicyagent/opa:0.10.7-envoy
+    image: openpolicyagent/opa:0.17.1-istio
     volumes:
     - ./docker/backend/opa/policies:/policies
     - ./docker/backend/opa/config:/config
     command:
-    - --plugin-dir=.
     - run
     - --server
     - --log-level=debug
@@ -85,12 +83,11 @@ services:
     ports:
       - "9192:9192"
   opa_db:
-    image: openpolicyagent/opa:0.10.7-envoy
+    image: openpolicyagent/opa:0.17.1-istio
     volumes:
     - ./docker/db/opa/policies:/policies
     - ./docker/db/opa/config:/config
     command:
-    - --plugin-dir=.
     - run
     - --server
     - --log-level=debug
